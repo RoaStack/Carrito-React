@@ -23,8 +23,11 @@ function App() {
       const index = prev.findIndex(item => item.id === producto.id);
       if (index !== -1) {
         const updated = [...prev];
-        updated[index].cantidad += 1;
-        console.log('Agregando al carrito:', producto.nombre);
+        const updatedItem = {
+        ...updated[index],
+        cantidad: updated[index].cantidad + 1,
+};
+updated[index] = updatedItem;
 
         return updated;
       } else {
