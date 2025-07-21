@@ -25,7 +25,7 @@ const ProductosCard = ({ producto, onAddToCarrito }) => (
     <h3>{producto.nombre}</h3>
     <p>${producto.precio.toLocaleString('es-CL')}</p>
     <button onClick={() => onAddToCarrito(producto)}>
-         Agregar al carrito
+        Agregar al carrito
     </button>
   </div>
 );

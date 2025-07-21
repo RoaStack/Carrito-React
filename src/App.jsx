@@ -11,6 +11,8 @@ function App() {
     const saved = localStorage.getItem('carrito');
     return saved ? JSON.parse(saved) : [];
   });
+  const [cartItems, setCartItems] = useState([]);
+
 
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
 
@@ -58,6 +60,9 @@ updated[index] = updatedItem;
     setMostrarCarrito(false); //ocultamos el carrito
     toast.success('¡Compra realizada con éxito!');
   };
+  const clearCart = () => {
+    setCarrito([]); 
+  };
 
 
   const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
@@ -85,6 +90,7 @@ updated[index] = updatedItem;
           items={carrito}
           onRemoveItem={removeFromCarrito}
           onCheckout={handleCheckout}
+          onClearCart={clearCart}
           mostrar={mostrarCarrito}
           setMostrarCarrito={setMostrarCarrito}
         />)}
