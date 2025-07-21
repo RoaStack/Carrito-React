@@ -62,7 +62,7 @@ button:hover {
 /* Icono carrito de compras */
 .floating-carrito {
   position: fixed;
-  bottom: 1050px;
+  bottom: 850px;
   right: 20px;
   background-color: #f50303;
   color: white;
