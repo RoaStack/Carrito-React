@@ -9,12 +9,12 @@ import '../css/Carrito.css';
 const imageMap = {
   'DevOps-delight.jpg': DevOpsDelight,
   'Express-set.jpg': ExpressSet,
-  'Mongo-mix.jpg':MongoMix,
+  'Mongo-mix.jpg': MongoMix,
   'Node-nigiri.jpg': NodeNigiri,
   'RestFull-rolls.jpg': RestFullRoll,
 };
 
-const Carrito = ({ items, onRemoveItem, onCheckout, mostrar, setMostrarCarrito }) => {
+const Carrito = ({ items, onRemoveItem, onCheckout, onClearCart, mostrar, setMostrarCarrito,}) => {
   const total = items.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
 
   const handleCheckout = () => {
@@ -23,6 +23,15 @@ const Carrito = ({ items, onRemoveItem, onCheckout, mostrar, setMostrarCarrito }
       return;
     }
     onCheckout();
+  };
+
+  const handleClearCart = () => {
+    if (items.length === 0) {
+      toast.warn('El carrito ya está vacío.');
+      return;
+    }
+    onClearCart();
+    toast.success('Carrito vaciado correctamente');
   };
 
   return (
@@ -38,7 +47,7 @@ const Carrito = ({ items, onRemoveItem, onCheckout, mostrar, setMostrarCarrito }
               <div className="carrito-info">
                 <span><strong>{item.nombre}</strong></span>
                 <span>Cantidad: {item.cantidad}</span>
-                <span>Subtotal: ${ (item.precio * item.cantidad).toLocaleString('es-CL') }</span>
+                <span>Subtotal: ${(item.precio * item.cantidad).toLocaleString('es-CL')}</span>
               </div>
               <button className="carrito-remove-btn" onClick={() => onRemoveItem(item.id)}>Eliminar</button>
             </li>
@@ -46,6 +55,20 @@ const Carrito = ({ items, onRemoveItem, onCheckout, mostrar, setMostrarCarrito }
         </ul>
         <p className="carrito-total"><strong>Total:</strong> ${total.toLocaleString('es-CL')}</p>
       </div>
+
+      <div className="carrito-buttons">
+        <button
+          className="carrito-clear-btn"
+          onClick={handleClearCart}
+          disabled={items.length === 0}
+          style={{
+            backgroundColor: items.length === 0 ? '#ccc' : '#f44336',
+            cursor: items.length === 0 ? 'not-allowed' : 'pointer',
+            marginBottom: '10px'
+          }}
+        >
+          Vaciar carrito
+        </button>
 
         <button
           className="carrito-checkout-btn"
@@ -57,7 +80,8 @@ const Carrito = ({ items, onRemoveItem, onCheckout, mostrar, setMostrarCarrito }
           }}
         >
           Realizar compra (${total.toLocaleString('es-CL')})
-      </button>
+        </button>
+      </div>
     </div>
   );
 };
