@@ -1,0 +1,131 @@
+.carrito-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100%;
+  display: flex;
+  color:#7b1414;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  overflow: hidden;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carrito-visible {
+  transform: translateX(0);
+}
+
+.carrito-hidden {
+  transform: translateX(100%);
+}
+
+.carrito-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+
+.carrito-container {
+  padding: 1rem;
+  color: #5e1111ff;
+  max-width: 500px;
+  margin: 2rem auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(20, 1, 1, 0.69);
+}
+
+.carrito-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.carrito-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carrito-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.carrito-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.carrito-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.carrito-remove-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carrito-total {
+  text-align: right;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.carrito-checkout-btn {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.carrito-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+.carrito-checkout-btn {
+  position:sticky;
+  bottom: 20px;
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  z-index: 10;
+}
+
