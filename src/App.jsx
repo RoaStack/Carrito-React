@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProductosList from './components/productosList';
+import ProductosList from './components/ProductosList';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Carrito from './components/Carrito';
