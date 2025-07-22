@@ -46,7 +46,11 @@ updated[index] = updatedItem;
       if (index !== -1) {
         const updated = [...prev];
         if (updated[index].cantidad > 1) {
-          updated[index].cantidad -= 1;
+          const updatedItem = {
+            ...updated[index],
+            cantidad: updated[index].cantidad - 1,
+          };
+          updated[index] = updatedItem;
           return updated;
         } else {
           return updated.filter(item => item.id !== id);
@@ -55,6 +59,7 @@ updated[index] = updatedItem;
       return prev;
     });
   };
+
   const handleCheckout = () => {
     setCarrito([]);
     setMostrarCarrito(false); //ocultamos el carrito
