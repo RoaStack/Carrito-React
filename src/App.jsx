@@ -11,9 +11,7 @@ function App() {
     const saved = localStorage.getItem('carrito');
     return saved ? JSON.parse(saved) : [];
   });
-  const [cartItems, setCartItems] = useState([]);
-
-
+  
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
 
   useEffect(() => {
